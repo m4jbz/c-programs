@@ -17,7 +17,7 @@ void imprimirMatriz(int fil, int col, int mtr[fil][col]) {
 
 int* hacerArray(int longitud, int fil, int col, int matr[fil][col]) {
 
-	int* arreglo = malloc(longitud * sizeof(int)); // Asignación dinámica de memoria
+	int* arreglo = (int*) calloc(longitud, sizeof(int)); 
 
     if (arreglo == NULL) {
 			fprintf(stderr, "Error al asignar memoria dinámica\n");
