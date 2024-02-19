@@ -1,21 +1,22 @@
-/* Matrix Sorter by m4jbz */
+/* 
+ * Author: Marco Aurelio Juárez Baltazar
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
 
-/* Declaration of functions. */
+// declaration of functions
 void printMatrix(int row, int col, int mtr[row][col]);
 int* makeArray(int length, int row, int col, int matr[row][col]);
 int* sortArray(int* arr, int length);
-void printSortedMatrix(int* arr2, int row, int colum);
+void printSortedMatrix(int* arr, int row, int colum);
 
-int main() {
-
-	int matrix[3][3] = {{4, 3, 5},
-											{6, 1, 2},
-											{9, 8, 7}};
+int main()
+{
+	// this is the matrix that will be sorted
+	int matrix[3][4] = {{4, 3, 5, 10},
+											{6, 1, 2, 12},
+											{9, 8, 7, 11}};
 
 	int columns = sizeof(matrix[0]) / sizeof(matrix[0][0]);
 	int rows = sizeof(matrix) / sizeof(matrix[0]);
@@ -30,8 +31,8 @@ int main() {
 	return 0;
 }
 
-void printMatrix(int row, int col, int mtr[row][col]) {
-
+void printMatrix(int row, int col, int mtr[row][col])
+{
 	for (int i = 0; i < row; i++)
 	{
 		for (int j = 0; j < col; j++)
@@ -42,15 +43,9 @@ void printMatrix(int row, int col, int mtr[row][col]) {
 
 }
 
-int* makeArray(int length, int row, int col, int matr[row][col]) {
-
-	int* array = (int*) calloc(length, sizeof(int)); 
-
-	if (array == NULL) 
-	{
-		fprintf(stderr, "ERROR to asign dynamic memory.\n");
-		exit(EXIT_FAILURE);
-	}
+int* makeArray(int length, int row, int col, int matr[row][col])
+{
+	int* array = calloc(length, sizeof(int)); 
 
 	int k = 0;
 
@@ -67,8 +62,8 @@ int* makeArray(int length, int row, int col, int matr[row][col]) {
 	free(array);
 }
 
-int* sortArray(int* arr, int length) {
-	
+int* sortArray(int* arr, int length)
+{
 	int aux;
 
 	for (int i = 0; i < length; i++) 
@@ -88,18 +83,19 @@ int* sortArray(int* arr, int length) {
 	free(arr);
 }
 
-void printSortedMatrix(int* arr2, int row, int colum) {
-	
-	int l = 0;
+void printSortedMatrix(int* arr, int row, int colum)
+{
+	int k = 0;
 
 	for (int i = 0; i < row; i++) 
 	{
 		for (int j = 0; j < colum; j++) 
 		{
-			printf("%d, ", arr2[l]);
-			l++;
+			printf("%d, ", arr[k]);
+			k++;
 		}
 		printf("\n");
 	}
 
+	free(arr);
 }
