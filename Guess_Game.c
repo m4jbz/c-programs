@@ -27,16 +27,13 @@ int main() {
 		}
 
 		if (itsHot(number, randNum)) 
-		{
 			printf("It's hot!\n");
-		}
 
 		attempts--;
 
 		if (attempts == 0) 
-		{
 			printf("Out of attempts. The number was: %d\n", randNum);
-		} else 
+		else 
 		{
 			printf("You missed, try again\n");
 			printf("You have: %d attempts left.\n", attempts);
@@ -46,10 +43,12 @@ int main() {
 	return 0;
 }
 
-bool guessNumber(int n, int randomNumber) {
+bool guessNumber(int n, int randomNumber)
+{
 	return n == randomNumber;
 }
 
-bool itsHot(int n, int randomNumber) {
+bool itsHot(int n, int randomNumber)
+{
 	return (n >= randomNumber - 2 && n <= randomNumber + 2);
 }
