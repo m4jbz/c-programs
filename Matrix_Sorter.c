@@ -13,9 +13,9 @@ void printSortedMatrix(int* arr2, int row, int colum);
 
 int main() {
 
-	int matrix[3][4] = {{4, 3, 5, 7},
-											{6, 1, 2, 0},
-											{9, 8, 11, 10}};
+	int matrix[3][3] = {{4, 3, 5},
+											{6, 1, 2},
+											{9, 8, 7}};
 
 	int columns = sizeof(matrix[0]) / sizeof(matrix[0][0]);
 	int rows = sizeof(matrix) / sizeof(matrix[0]);
@@ -27,17 +27,15 @@ int main() {
 	int* sorted = sortArray(array, length);
 	printSortedMatrix(sorted, rows, columns);
 
-	free(array);
-
 	return 0;
 }
 
 void printMatrix(int row, int col, int mtr[row][col]) {
 
-	for (int i = 0; i < row; i++) {
-		for (int j = 0; j < col; j++) {
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col; j++)
 			printf("%d, ", mtr[i][j]);
-		}
 		printf("\n");
 	}
 	printf("\n");
@@ -64,9 +62,9 @@ int* makeArray(int length, int row, int col, int matr[row][col]) {
 			k++;
 		}
 	}
-	free(array);
 
 	return array;
+	free(array);
 }
 
 int* sortArray(int* arr, int length) {
@@ -87,6 +85,7 @@ int* sortArray(int* arr, int length) {
 	}
 
 	return arr;
+	free(arr);
 }
 
 void printSortedMatrix(int* arr2, int row, int colum) {
